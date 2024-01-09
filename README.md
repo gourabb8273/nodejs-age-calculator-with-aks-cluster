@@ -1,7 +1,7 @@
 # Node.js Age Calculator App
 
 ## Overview
-<img src="[path/to/your/image.png](https://github.com/gourabb8273/nodejs-age-calculator-with-aks-cluster/assets/109871120/f578b7f2-14d2-4150-a152-9419fdafb4ca)" alt="Your Image" width="200" height="150">
+<img src="https://github.com/gourabb8273/nodejs-age-calculator-with-aks-cluster/assets/109871120/f578b7f2-14d2-4150-a152-9419fdafb4ca" alt="Your Image" width="200" height="150">
 
 
 
