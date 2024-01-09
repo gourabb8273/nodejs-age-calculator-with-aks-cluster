@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="https://icon-library.com/images/date-of-birth-icon/date-of-birth-icon-15.jpg" type="image/x-icon">
+  <title>Age Calculator</title>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <h1>Age Calculator</h1>
+    </div>
+  </nav>
+
+  <div class="container">
+    <form id="dob-form">
+      <label for="dob">Enter Your Date of Birth</label>
+      <input type="date" id="dob" required>
+      <button type="button" onclick="calculateAge()">Calculate Age</button>
+      <p id="age-message"></p>
+    </form>
+  </div>
+ <div id="env-section">
+    <h2>Environment Variables</h2>
+    <p id="applicationEnv"></p>
+    <p id="applicationName"></p>
+    <p id="connectionString"></p>
+    <p id="applicationPassword" style="display: none;"></p>
+    <button id="show-password-button" onclick="togglePasswordVisibility()">Show Password</button>
+  </div>
+</div>
+
+<script>
+  fetch('/env')
+    .then(response => response.json())
+    .then(data => {
+      const { applicationEnv, applicationName, connectionString, applicationPassword } = data;
+      // Display environment variables in the UI
+      document.getElementById('applicationEnv').innerText = `Application Environment: ${applicationEnv}`;
+      document.getElementById('applicationName').innerText = `Application Name: ${applicationName}`;
+      document.getElementById('connectionString').innerText = `Connection String: ${connectionString}`;
+      document.getElementById('applicationPassword').innerText = `Application Password: ${applicationPassword}`;
+
+      console.log('Environment:', applicationEnv);
+      console.log('Application Name:', applicationName);
+      console.log('Connection String:', connectionString);
+      console.log('Application Password:', applicationPassword);
+    })
+    .catch(error => console.error('Error fetching environment variables:', error));
+    
+    function togglePasswordVisibility() {
+    const passwordElement = document.getElementById('applicationPassword');
+    const buttonElement = document.getElementById('show-password-button');
+    
+    if (passwordElement.style.display === 'none') {
+      passwordElement.style.display = 'block';
+      buttonElement.innerText = 'Hide Password';
+    } else {
+      passwordElement.style.display = 'none';
+      buttonElement.innerText = 'Show Password';
+    }
+  }
+</script>
+  <script src="dob.js"></script>
+</body>
+</html>

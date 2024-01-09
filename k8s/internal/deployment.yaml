@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-dob-app
+  namespace: beta
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nodejs-dob-app
+  template:
+    metadata:
+      labels:
+        app: nodejs-dob-app
+    spec:
+      containers:
+      - name: my-nodejs-app-container
+        image: gourabbanerjee05/nodejs-dob-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+        env:
+          - name: Application_Password
+            valueFrom:
+              secretKeyRef:
+                name: app-secret
+                key: password
+          - name: Application_Environment
+            value: "beta namespace"  
+          - name: Application_Name
+            value: "Nodejs Age Calculator"
+          - name: Application_ConnectionString
+            valueFrom:
+              configMapKeyRef:
+                name: app-config
+                key: connection-string
