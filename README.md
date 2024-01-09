@@ -1,6 +1,8 @@
 # Node.js Age Calculator App
 
 ## Overview
+![image](https://github.com/gourabb8273/nodejs-age-calculator-with-aks-cluster/assets/109871120/f578b7f2-14d2-4150-a152-9419fdafb4ca)
+
 
 This is a Node.js application for calculating age based on the provided date of birth. The application is containerized and deployed on Azure Kubernetes Service (AKS) using Azure DevOps CI/CD pipelines.
 
