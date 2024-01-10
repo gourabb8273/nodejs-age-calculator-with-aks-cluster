@@ -36,3 +36,9 @@ The CI/CD pipeline automates the build and deployment processes:
 ## Contributing
 
 Feel free to contribute by opening issues or creating pull requests.
+
+## Running the Application Locally
+ - Install Node js
+ - Clone the repo: https://github.com/gourabb8273/nodejs-age-calculator-with-aks-cluster.git 
+ - Install Dependencies - npm install
+ - Run the Express Server - node app
